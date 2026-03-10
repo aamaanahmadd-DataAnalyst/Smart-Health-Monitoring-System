@@ -188,7 +188,7 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
                                     3:"3 – Unknown"
                                 }[x])
 
-    if st.button("🤖 Predict Heart Disease Risk", width="stretch"):
+    if st.button("🤖 Predict Heart Disease Risk", use_container_width="True"):
 
         sex_val   = 1 if sex == "Male" else 0
         fbs_val   = 1 if fbs == "Yes" else 0
@@ -414,5 +414,6 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
             recs.append("📊 Annual cardiac screening is recommended at your current risk level.")
         if cp == 3 or severity == "Severe":
             recs.append("🚨 Seek IMMEDIATE help if: chest pain/tightness, sudden breathlessness, dizziness, or fainting.")
+
 
         st.markdown("".join(rec_item(r) for r in recs), unsafe_allow_html=True)
