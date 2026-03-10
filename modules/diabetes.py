@@ -164,7 +164,7 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
         skin    = st.number_input("Skin Thickness (mm)", 0, 100,
                                   help="Normal: 10–40 mm")
 
-    if st.button("🤖 Predict Diabetes Risk", width="stretch"):
+    if st.button("🤖 Predict Diabetes Risk", use_container_width="True"):
 
         if glucose == 0:
             st.warning("Glucose value cannot be zero.")
@@ -354,5 +354,6 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
             recs.append("📊 Annual diabetes screening is sufficient at current risk level.")
         if glucose > 200:
             recs.append("🚨 Seek medical help if you experience: excessive thirst, blurry vision, or extreme fatigue.")
+
 
         st.markdown("".join(rec_item(r) for r in recs), unsafe_allow_html=True)
