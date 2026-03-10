@@ -71,7 +71,7 @@ button[kind="header"] {
     height: 100vh !important;
     width: 300px !important;
     min-width: 300px !important;
-    z-index: 100 !important;
+    /* z-index: 100 !important; */
     background: linear-gradient(180deg, #111d2e 0%, #0f1923 100%) !important;
     /* border-right: 1px solid var(--border) !important;
     padding-top: 1rem;  */
@@ -338,6 +338,7 @@ iframe[title="streamlit_lottie"] {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
+
 
 
 
