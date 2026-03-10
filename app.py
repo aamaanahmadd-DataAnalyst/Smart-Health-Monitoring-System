@@ -7,7 +7,7 @@ st.set_page_config(
     page_title="Smart Health Monitoring System",
     page_icon="🩺",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="auto"
 )
 
 # ---------------- LOAD CSS ----------------
@@ -126,3 +126,4 @@ st.markdown("""
 <p style='color:gray;'>© 2026 Smart Health Monitoring System | AI + ML Powered</p>
 </center>
 """, unsafe_allow_html=True)
+
