@@ -51,24 +51,24 @@ body, .stApp {
    ============================================================ */
 
 /* Hide every collapse/arrow button */
-[data-testid="stSidebarCollapseButton"],
+/* [data-testid="stSidebarCollapseButton"],
 [data-testid="collapsedControl"],
 [data-testid="stSidebarNavCollapseIcon"],
 button[kind="header"] {
     display: none !important;
     visibility: hidden !important;
     pointer-events: none !important;
-}
+} */
 
 /* Sidebar always visible, sticky */
 [data-testid="stSidebar"] {
     display: block !important;
     visibility: visible !important;
-    transform: translateX(0) !important;
-    transition: none !important;
-    position: sticky !important;
-    top: 0 !important;
-    height: 100vh !important;
+    /* transform: translateX(0) !important; */
+    /* transition: none !important; */
+    /* position: sticky !important; */
+    /* top: 0 !important; */
+    /* height: 100vh !important; */
     width: 300px !important;
     min-width: 300px !important;
     z-index: 100 !important;
@@ -329,3 +329,4 @@ iframe[title="streamlit_lottie"] {
     color: var(--text-muted);
     text-align: center;
 }
+
