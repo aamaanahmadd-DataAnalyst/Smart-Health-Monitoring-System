@@ -1,0 +1,331 @@
+/* =====================================================
+   Smart Health Monitoring System — style.css
+   Integral University, Lucknow | B.Tech CSE 2025-26
+   ===================================================== */
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ---- Root Variables ---- */
+:root {
+    --primary:      #2980b9;
+    --primary-dark: #1a6fa8;
+    --success:      #2ecc71;
+    --warning:      #f39c12;
+    --danger:       #e74c3c;
+    --bg-card:      rgba(255, 255, 255, 0.05);
+    --border:       rgba(255, 255, 255, 0.08);
+    --text-light:   #ecf0f1;
+    --text-muted:   #95a5a6;
+    --radius:       16px;
+    --radius-sm:    10px;
+    --shadow:       0 8px 32px rgba(0, 0, 0, 0.4);
+    --font:         'Sora', sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ---- Animated Background ---- */
+body, .stApp {
+    background: linear-gradient(-45deg, #0f1923, #1a2535, #0f1923, #1b2c44);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    font-family: var(--font) !important;
+    color: var(--text-light) !important;
+}
+
+@keyframes gradientMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.main, .block-container {
+    background: transparent !important;
+}
+
+/* ---- Hide Streamlit Default Branding ---- */
+#MainMenu, footer, header { visibility: hidden; }
+
+/* ============================================================
+   SIDEBAR — PERMANENTLY LOCKED (sticky)
+   ============================================================ */
+
+/* Hide every collapse/arrow button */
+[data-testid="stSidebarCollapseButton"],
+[data-testid="collapsedControl"],
+[data-testid="stSidebarNavCollapseIcon"],
+button[kind="header"] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Sidebar always visible, sticky */
+[data-testid="stSidebar"] {
+    display: block !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+    transition: none !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    width: 300px !important;
+    min-width: 300px !important;
+    z-index: 100 !important;
+    background: linear-gradient(180deg, #111d2e 0%, #0f1923 100%) !important;
+    border-right: 1px solid var(--border) !important;
+    padding-top: 1rem;
+}
+
+/* ---- Sidebar Nav Labels ---- */
+[data-testid="stSidebar"] .stRadio label {
+    font-family: var(--font) !important;
+    font-size: 0.95rem !important;
+    color: var(--text-light) !important;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[data-testid="stSidebar"] .stRadio label:hover {
+    background: rgba(41, 128, 185, 0.15);
+}
+
+[data-testid="stSidebar"] .stRadio input:checked + div {
+    background: linear-gradient(135deg, rgba(41, 128, 185, 0.45), rgba(41, 128, 185, 0.2));
+    border-left: 4px solid #2980b9;
+    border-radius: 10px;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4 {
+    font-family: var(--font) !important;
+    font-weight: 700 !important;
+    color: var(--text-light) !important;
+    letter-spacing: -0.3px;
+}
+
+h1 {
+    font-size: 2.2rem !important;
+    text-shadow: 0 0 8px rgba(41, 128, 185, 0.7), 0 0 16px rgba(41, 128, 185, 0.4);
+}
+h2 { font-size: 1.6rem !important; }
+h3 { font-size: 1.2rem !important; color: var(--primary) !important; }
+
+/* ---- Subheader ---- */
+.stSubheader {
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+}
+
+/* ---- Buttons ---- */
+.stButton > button {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%) !important;
+    color: white !important;
+    font-family: var(--font) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 10px 28px !important;
+    box-shadow: 0 4px 15px rgba(41, 128, 185, 0.3) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    width: 100%;
+}
+
+.stButton > button:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 35px rgba(41, 128, 185, 0.6) !important;
+}
+
+.stButton > button:active {
+    transform: translateY(0) !important;
+}
+
+/* ---- Download Button ---- */
+.stDownloadButton > button {
+    background: linear-gradient(135deg, var(--success), #27ae60) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 10px 28px !important;
+    transition: transform 0.15s ease !important;
+    width: 100%;
+}
+
+.stDownloadButton > button:hover {
+    transform: translateY(-2px) !important;
+}
+
+/* ---- Input Fields ---- */
+.stNumberInput input,
+.stTextInput input,
+.stSelectbox select {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--text-light) !important;
+    font-family: var(--font) !important;
+    font-size: 0.9rem !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.stNumberInput input:focus,
+.stTextInput input:focus,
+.stSelectbox select:focus {
+    border: 1px solid var(--primary) !important;
+    box-shadow: 0 0 10px rgba(41, 128, 185, 0.5) !important;
+}
+
+/* ---- Labels ---- */
+.stNumberInput label,
+.stTextInput label,
+.stSelectbox label,
+label, p, span {
+    font-family: var(--font) !important;
+    color: var(--text-light) !important;
+}
+
+.stNumberInput label,
+.stTextInput label,
+.stSelectbox label {
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ---- Alert Messages ---- */
+.stSuccess, .stInfo, .stWarning, .stError {
+    border-radius: var(--radius-sm) !important;
+    font-family: var(--font) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+}
+
+/* ---- Metric Cards ---- */
+.metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(41, 128, 185, 0.25);
+}
+
+.metric-card h2 {
+    font-size: 2.4rem !important;
+    color: var(--primary) !important;
+    margin-bottom: 4px;
+}
+
+.metric-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* ---- Team Cards ---- */
+.team-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 16px;
+    text-align: center;
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(41, 128, 185, 0.25);
+}
+
+.team-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    margin-bottom: 12px;
+}
+
+.team-card h4 {
+    font-size: 1.05rem !important;
+    color: var(--text-light) !important;
+    margin-bottom: 6px;
+}
+
+.team-card a {
+    color: var(--primary) !important;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.team-card a:hover { text-decoration: underline; }
+
+/* ---- Horizontal Rule ---- */
+hr {
+    border: none !important;
+    border-top: 1px solid var(--border) !important;
+    margin: 24px 0 !important;
+}
+
+/* ---- Plotly Charts ---- */
+.js-plotly-plot {
+    border-radius: var(--radius) !important;
+    overflow: hidden;
+}
+
+/* ---- Dataframe ---- */
+.stDataFrame {
+    border-radius: var(--radius-sm) !important;
+    overflow: hidden !important;
+}
+
+/* ---- Lottie Fix ---- */
+iframe,
+.stLottie,
+[data-testid="stLottie"],
+div[data-testid="stLottie"] > div,
+div[data-testid="stLottie"] iframe,
+.element-container iframe,
+iframe[title="streamlit_lottie"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* ---- Fade-in Animation ---- */
+.fade-in { animation: fadeIn 0.8s ease-in-out; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* ---- Footer ---- */
+.footer-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+}
