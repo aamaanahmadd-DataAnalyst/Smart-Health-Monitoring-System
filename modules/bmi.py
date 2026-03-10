@@ -28,7 +28,7 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
     with col2:
         weight = st.number_input("Weight (kg)", 30.0, 200.0, 70.0)
 
-    if st.button("📊 Calculate BMI", width="stretch"):
+    if st.button("📊 Calculate BMI", use_container_width="True"):
 
         bmi = round(weight / ((height_cm / 100) ** 2), 2)
 
@@ -108,3 +108,4 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
             recs.append("🚨 Seek immediate attention if you experience breathlessness, joint pain, or fatigue during mild activity.")
 
         st.markdown("".join(rec_item(r) for r in recs), unsafe_allow_html=True)
+
