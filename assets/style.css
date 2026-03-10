@@ -330,3 +330,12 @@ iframe[title="streamlit_lottie"] {
     text-align: center;
 }
 
+/* Main content auto adjust with sidebar */
+.main .block-container {
+    transition: all 0.3s ease !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
