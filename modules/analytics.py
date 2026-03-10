@@ -347,7 +347,7 @@ def show_health_analytics(history):
 
     col_btn, col_empty = st.columns([1, 2])
     with col_btn:
-        generate = st.button("🖨️ Generate PDF Report", width="stretch")
+        generate = st.button("🖨️ Generate PDF Report")
 
     if generate:
         if name.strip() == "":
@@ -589,5 +589,6 @@ def _generate_pdf(file_path, name, age, gender, history):
         "Smart Health Monitoring System | Integral University | B.Tech CSE 2025",
         disclaimer_style
     ))
+
 
     doc.build(elements)
