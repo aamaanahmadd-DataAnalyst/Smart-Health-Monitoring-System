@@ -339,16 +339,8 @@ iframe[title="streamlit_lottie"] {
     padding-right: 2rem !important;
 }
 
-[data-testid="stToolbar"],
-[data-testid="stDecoration"],
-[data-testid="stStatusWidget"],
-#stDecoration,
-.stActionButton,
-.viewerBadge_container__r5tak,
-.viewerBadge_link__qRIco {
-    display: none !important;
-    visibility: hidden !important;
-}
+
+
 
 
 
