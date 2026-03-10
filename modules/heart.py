@@ -188,7 +188,7 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
                                     3:"3 – Unknown"
                                 }[x])
 
-    if st.button("🤖 Predict Heart Disease Risk", use_container_width="True"):
+    if st.button("🤖 Predict Heart Disease Risk"):
 
         sex_val   = 1 if sex == "Male" else 0
         fbs_val   = 1 if fbs == "Yes" else 0
@@ -417,3 +417,4 @@ border-radius:12px;padding:14px 18px;margin-bottom:1rem;font-size:0.8rem;">
 
 
         st.markdown("".join(rec_item(r) for r in recs), unsafe_allow_html=True)
+
