@@ -338,6 +338,10 @@ iframe[title="streamlit_lottie"] {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+
 
 
 
