@@ -185,7 +185,7 @@ def show_about():
         <div class="team-card fade-in">
             {img_tag(img1)}
             <h4>Amaan Ahmad</h4>
-            <p>Machine Learning & Frontend Development</p>
+            <p>ML Integration & Frontend Development</p>
             <a href="https://www.linkedin.com/in/amaan-ahmadli" target="_blank">LinkedIn</a> |
             <a href="https://github.com/amaanahmaddd" target="_blank">GitHub</a>
         </div>
@@ -229,4 +229,5 @@ def show_about():
         "<center><h4>🚀 AI-Integrated Preventive Healthcare Platform</h4>"
         "<p style='color:gray;'>Integral University, Lucknow | B.Tech CSE 2025-26</p></center>",
         unsafe_allow_html=True
+
     )
