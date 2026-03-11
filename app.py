@@ -20,7 +20,6 @@ def load_css():
 
 load_css()
 
-
 # ---------------- LOAD LOTTIE JSON ----------------
 def load_lottiefile(filepath):
     try:
@@ -29,9 +28,7 @@ def load_lottiefile(filepath):
     except:
         return None
 
-
 health_animation = load_lottiefile("assets/health.json")
-
 
 # ---------------- LOAD MODELS ----------------
 from utils.load_models import load_models
@@ -42,10 +39,12 @@ def load_models_cached():
 
 diabetes_model, heart_model = load_models_cached()
 
-
 if "history" not in st.session_state:
     st.session_state.history = []
 
+# Track previous menu to detect change
+if "prev_menu" not in st.session_state:
+    st.session_state.prev_menu = None
 
 # ---------------- LOAD MODULES ----------------
 from modules.vital import show_vital
@@ -55,16 +54,13 @@ from modules.heart import show_heart_prediction
 from modules.analytics import show_health_analytics
 from modules.about import show_about
 
-
 # ---------------- HEADER ----------------
 col1, col2 = st.columns([1,2])
 
 with col1:
-
     if health_animation:
         components.html(f"""
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
         <lottie-player
             autoplay
             loop
@@ -82,7 +78,6 @@ with col2:
 
 st.markdown("---")
 
-
 # ---------------- SIDEBAR ----------------
 st.sidebar.title("🩺 Monitoring Options")
 
@@ -98,19 +93,24 @@ menu = st.sidebar.radio(
     ]
 )
 
-# Mobile auto-close sidebar on selection
-st.markdown("""
-<script>
-setTimeout(function() {
-    var btn = window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"]');
-    var sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
-    if (btn && sidebar && window.parent.innerWidth <= 768) {
-        btn.click();
-    }
-}, 300);
-</script>
-""", unsafe_allow_html=True)
-
+# Mobile sidebar auto-close — only when menu selection changes
+if st.session_state.prev_menu != menu:
+    st.session_state.prev_menu = menu
+    components.html("""
+    <script>
+        setTimeout(function() {
+            var w = window.parent.innerWidth;
+            if (w <= 768) {
+                var sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+                var btn = window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"]');
+                if (sidebar && btn) {
+                    var isOpen = sidebar.getBoundingClientRect().left >= 0;
+                    if (isOpen) btn.click();
+                }
+            }
+        }, 400);
+    </script>
+    """, height=0)
 
 # ---------------- ROUTING ----------------
 if menu == "Vital Health Check":
@@ -131,7 +131,6 @@ elif menu == "Health Analytics & Report":
 elif menu == "About":
     show_about()
 
-
 # ---------------- FOOTER ----------------
 st.markdown("""
 <hr>
@@ -139,6 +138,3 @@ st.markdown("""
 <p style='color:gray;'>© 2026 Smart Health Monitoring System | AI + ML Powered</p>
 </center>
 """, unsafe_allow_html=True)
-
-
-
