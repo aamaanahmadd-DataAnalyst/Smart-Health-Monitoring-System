@@ -172,9 +172,20 @@ h3 { font-size: 1.2rem !important; color: var(--primary) !important; }
     border: 1px solid var(--border) !important;
     border-radius: var(--radius-sm) !important;
     color: var(--text-light) !important;
+    color: #ecf0f1 !important;
     font-family: var(--font) !important;
     font-size: 0.9rem !important;
     transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Light mode input fix */
+@media (prefers-color-scheme: light) {
+    .stNumberInput input,
+    .stTextInput input,
+    .stSelectbox select {
+        color: #1a252f !important;
+        background: rgba(0,0,0,0.05) !important;
+    }
 }
 
 .stNumberInput input:focus,
@@ -338,6 +349,7 @@ iframe[title="streamlit_lottie"] {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
+
 
 
 
