@@ -7,7 +7,7 @@ st.set_page_config(
     page_title="Smart Health Monitoring System",
     page_icon="🩺",
     layout="wide",
-    initial_sidebar_state="auto"
+    initial_sidebar_state="collapsed"
 )
 
 # ---------------- LOAD CSS ----------------
@@ -42,9 +42,7 @@ diabetes_model, heart_model = load_models_cached()
 if "history" not in st.session_state:
     st.session_state.history = []
 
-# Track previous menu to detect change
-if "prev_menu" not in st.session_state:
-    st.session_state.prev_menu = None
+
 
 # ---------------- LOAD MODULES ----------------
 from modules.vital import show_vital
@@ -93,24 +91,7 @@ menu = st.sidebar.radio(
     ]
 )
 
-# Mobile sidebar auto-close — only when menu selection changes
-if st.session_state.prev_menu != menu:
-    st.session_state.prev_menu = menu
-    components.html("""
-    <script>
-        setTimeout(function() {
-            var w = window.parent.innerWidth;
-            if (w <= 768) {
-                var sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
-                var btn = window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"]');
-                if (sidebar && btn) {
-                    var isOpen = sidebar.getBoundingClientRect().left >= 0;
-                    if (isOpen) btn.click();
-                }
-            }
-        }, 400);
-    </script>
-    """, height=0)
+
 
 # ---------------- ROUTING ----------------
 if menu == "Vital Health Check":
