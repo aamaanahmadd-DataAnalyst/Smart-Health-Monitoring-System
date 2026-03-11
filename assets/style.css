@@ -341,28 +341,11 @@ iframe[title="streamlit_lottie"] {
     text-align: center;
 }
 
-/* Main content auto adjust with sidebar */
-.main .block-container {
-    transition: all 0.3s ease !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
+/* Main content full width */
+section[data-testid="stMain"] > div {
     padding-left: 2rem !important;
     padding-right: 2rem !important;
 }
-
-/* Body center fix when sidebar collapsed */
-.main {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-section[data-testid="stMain"] {
-    margin-left: 0 !important;
-    width: 100% !important;
-}
-
-
-
 
 
 
