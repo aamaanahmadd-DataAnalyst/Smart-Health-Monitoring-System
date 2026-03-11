@@ -68,9 +68,9 @@ button[kind="header"] {
     transition: none !important;
     position: sticky !important;
     top: 0 !important; */
-    height: 100vh !important;
+    /* height: 100vh !important;
     width: 300px !important;
-    min-width: 300px !important;
+    min-width: 300px !important; */
     /* z-index: 100 !important; */
     background: linear-gradient(180deg, #111d2e 0%, #0f1923 100%) !important;
     /* border-right: 1px solid var(--border) !important;
@@ -348,6 +348,17 @@ iframe[title="streamlit_lottie"] {
     margin: 0 auto !important;
     padding-left: 2rem !important;
     padding-right: 2rem !important;
+}
+
+/* Body center fix when sidebar collapsed */
+.main {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+section[data-testid="stMain"] {
+    margin-left: 0 !important;
+    width: 100% !important;
 }
 
 
