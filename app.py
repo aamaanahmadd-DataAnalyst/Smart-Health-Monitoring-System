@@ -118,7 +118,18 @@ elif menu == "Health Analytics & Report":
 elif menu == "About":
     show_about()
 
-
+# Mobile sidebar auto-close
+st.markdown("""
+<script>
+const items = window.parent.document.querySelectorAll('[data-testid="stSidebarNavItems"] label');
+items.forEach(item => {
+    item.addEventListener('click', () => {
+        const btn = window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"]');
+        if (btn && window.parent.innerWidth < 768) btn.click();
+    });
+});
+</script>
+""", unsafe_allow_html=True)
 # ---------------- FOOTER ----------------
 st.markdown("""
 <hr>
@@ -126,4 +137,5 @@ st.markdown("""
 <p style='color:gray;'>© 2026 Smart Health Monitoring System | AI + ML Powered</p>
 </center>
 """, unsafe_allow_html=True)
+
 
