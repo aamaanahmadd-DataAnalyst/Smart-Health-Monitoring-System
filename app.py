@@ -98,6 +98,19 @@ menu = st.sidebar.radio(
     ]
 )
 
+# Mobile auto-close sidebar on selection
+st.markdown("""
+<script>
+setTimeout(function() {
+    var btn = window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"]');
+    var sidebar = window.parent.document.querySelector('[data-testid="stSidebar"]');
+    if (btn && sidebar && window.parent.innerWidth <= 768) {
+        btn.click();
+    }
+}, 300);
+</script>
+""", unsafe_allow_html=True)
+
 
 # ---------------- ROUTING ----------------
 if menu == "Vital Health Check":
@@ -118,18 +131,7 @@ elif menu == "Health Analytics & Report":
 elif menu == "About":
     show_about()
 
-# Mobile sidebar auto-close
-st.markdown("""
-<script>
-const items = window.parent.document.querySelectorAll('[data-testid="stSidebarNavItems"] label');
-items.forEach(item => {
-    item.addEventListener('click', () => {
-        const btn = window.parent.document.querySelector('[data-testid="stSidebarCollapseButton"]');
-        if (btn && window.parent.innerWidth < 768) btn.click();
-    });
-});
-</script>
-""", unsafe_allow_html=True)
+
 # ---------------- FOOTER ----------------
 st.markdown("""
 <hr>
@@ -137,5 +139,6 @@ st.markdown("""
 <p style='color:gray;'>© 2026 Smart Health Monitoring System | AI + ML Powered</p>
 </center>
 """, unsafe_allow_html=True)
+
 
 
